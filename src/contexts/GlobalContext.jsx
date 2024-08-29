@@ -7,87 +7,71 @@ export const GlobalContext = createContext()
 const announceList = [
   {
     id: 1,
-    title: 'Introducing New Security Features and Enhancements',
-    author: 'John Doe',
+    title: 'CT Wallet APP Launch Announcement',
+    author: '',
     content:
-      'Building your own cryptocurrency exchanges, achieving your blockchain business. Professional UX/UX designer, providing the best design. Create your own cryptocurrency exchange with our customized service!',
-    date: 'Jul 12, 2024',
+      'We are excited to announce that the CT Wallet APP will officially launch on April 29, 2024. CT Wallet will provide users with a secure and convenient service for managing and transacting multiple mainstream cryptocurrencies. Key features include:\n\n- Multi-currency support: including BTC, ETH, BSC, TRON, and more.\n- Instant transactions: Fast buying and selling of cryptocurrencies with multiple payment options.\n- Advanced security: Utilizing cutting-edge encryption technology to ensure user funds are safe.\n- User-friendly interface: Simple and intuitive operation for all users.\n\nStay tuned for the official launch of the CT Wallet APP, and thank you for your support!',
+    date: 'Apr 29, 2024',
     open: false,
     type: 'all',
-    tags: ['tag1', 'tag2'],
+    tags: ['CT Wallet', 'Launch'],
+    img: 'https://api.obit-app.com/image_0001.jpg',
   },
   {
     id: 2,
-    title: 'Scheduled Maintenance on July 15, 2024',
-    author: 'John Doe',
+    title: 'ETH Wallet Feature Update',
+    author: '',
     content:
-      'With our blockchain technology, knowledge and experience. Our blockchain developers will easily develop the blockchain wallet that can retain multi-chain and hold multi-crypto currency.',
-    date: 'Jul 13, 2024',
+      'We are pleased to inform you that the ETH wallet feature in CT Wallet will undergo a major update on May 7, 2024. This update will bring the following improvements:\n\n- Faster transaction processing: Optimized transaction flow to significantly improve transaction speed.\n- Lower fees: Reduced transaction fees to lower user costs.\n- Enhanced security: Introduction of multi-signature technology and smart contracts to ensure fund security.\n- New features: Support for more DApp interactions to enhance user experience.\n\nStay tuned for our latest updates, and thank you for your support and trust in CT Wallet!',
+    date: 'May 07, 2024',
     open: false,
     type: 'news',
-    tags: ['tag1', 'tag2'],
+    tags: ['ETH', 'Wallet Update'],
+    img: 'https://api.obit-app.com/image_0002.jpg',
   },
   {
     id: 3,
-    title: 'Upgrade Your Wallet for Improved Performance',
-    author: 'John Doe',
+    title: 'BSC Wallet Feature Update',
+    author: '',
     content:
-      'lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec viverra facilisis velit, ac bibendum',
-    date: 'Jul 14, 2024',
+      'We are honored to announce that the BSC wallet feature in CT Wallet will be updated on May 19, 2024. This update will enhance user experience and add more practical features, including:\n\n- New currency support: Expanded support for more cryptocurrencies on the BSC chain.\n- Improved transaction speed: Optimized BSC chain transaction processing to reduce confirmation time.\n- Enhanced security: Adoption of advanced security technologies to further protect user assets.\n- User-friendly interface: Improved user interface design for easier and more intuitive operations.\n\nPlease stay tuned for our updates, and thank you for your support and trust in CT Wallet!',
+    date: 'May 19, 2024',
     open: false,
-    type: 'all',
-    tags: ['tag1', 'tag2'],
+    type: 'news',
+    tags: ['BSC', 'Wallet Update'],
+    img: 'https://api.obit-app.com/image_0003.jpg',
   },
   {
     id: 4,
-    title: 'Important Notice: Phishing Alert',
-    author: 'John Doe',
+    title: 'BTC Wallet Feature Update',
+    author: '',
     content:
-      'lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec viverra facilisis velit, ac bibendum',
-    date: 'Jul 15, 2024',
+      'We are pleased to inform you that the BTC wallet feature in CT Wallet will be updated on Jun 2, 2024. The new features will include the following improvements:\n\n- Higher transaction efficiency: Optimized BTC chain transaction flow to significantly improve efficiency.\n- Enhanced privacy protection: Introduction of privacy protection technologies to ensure the security of user transaction information.\n- New features: Support for Lightning Network transactions to facilitate small payments.\n- Improved user experience: Enhanced user interface design for a better operational experience.\n\nStay tuned for our latest updates, and thank you for your support of CT Wallet!',
+    date: 'Jun 02, 2024',
     open: false,
-    type: 'important',
-    tags: ['tag1', 'tag2'],
+    type: 'news',
+    tags: ['BTC', 'Wallet Update'],
+    img: 'https://api.obit-app.com/image_0001.jpg',
   },
   {
     id: 5,
-    title: 'New Partnership with Blockchain Innovations Ltd.',
-    author: 'John Doe',
+    title: 'TRON Wallet Feature Update',
+    author: '',
     content:
-      'lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec viverra facilisis velit, ac bibendum',
-    date: 'Jul 16, 2024',
+      'We are excited to announce that the TRON wallet feature in CT Wallet will undergo a major update on Jun 23, 2024. This update will greatly enhance the following aspects:\n\n- Faster transaction speed: Optimized TRON chain transaction processing to significantly improve speed.\n- Lower fees: Reduced transaction fees to lower user costs.\n- Enhanced security: Introduction of multi-signature technology and smart contracts to ensure fund security.\n- New features: Support for more DApp interactions on the TRON chain to enhance user experience.\n\nPlease stay tuned for our latest announcements, and thank you for your support of CT Wallet!',
+    date: 'Jun 23, 2024',
     open: false,
     type: 'news',
-    tags: ['tag1', 'tag2'],
-  },
-  {
-    id: 6,
-    title: 'Enhanced User Interface Coming Soon',
-    author: 'John Doe',
-    content:
-      'lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec viverra facilisis velit, ac bibendum',
-    date: 'Jul 17, 2024',
-    open: false,
-    type: 'all',
-    tags: ['tag1', 'tag2'],
-  },
-  {
-    id: 7,
-    title: 'Upcoming Webinar: Understanding Blockchain Technology',
-    author: 'John Doe',
-    content:
-      'lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec viverra facilisis velit, ac bibendum',
-    date: 'Jul 18, 2024',
-    open: false,
-    type: 'news',
-    tags: ['tag1', 'tag2'],
+    tags: ['TRON', 'Wallet Update'],
+    img: 'https://api.obit-app.com/image_0002.jpg',
   },
 ]
 
 const GlobalProvider = ({ children }) => {
   const [data, setData] = useState()
   useEffect(() => {
-    setData(announceList)
+    const reversedData = [...announceList].reverse()
+    setData(reversedData)
     console.log('get data from API')
   }, [])
   return (

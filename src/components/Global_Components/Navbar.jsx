@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import Logo from '@/assets/logo.png'
 import { Link } from 'react-router-dom'
 import { GiHamburgerMenu } from 'react-icons/gi'
+import { MdOutlineClose } from 'react-icons/md'
 import { motion } from 'framer-motion'
 
 const NavMenu = [
@@ -48,7 +49,7 @@ const Navbar = () => {
   }
 
   return (
-    <div className="bg-gray text-white">
+    <div className="bg-gray text-white  left-0 right-0  z-50">
       <div className="container mx-auto flex justify-between items-center py-4">
         <div>
           <Link to="/" className="block">
@@ -81,13 +82,19 @@ const Navbar = () => {
           </ul>
         </div>
         {/* 漢堡選單 */}
-        <div className="block md:hidden relative" ref={menuRef}>
-          <GiHamburgerMenu
-            className="text-4xl cursor-pointer"
-            onClick={toggleMenu}
-          />
-          {showMenu && (
-            <div className="fixed top-24 left-0 right-0 bg-gray-800 shadow-md rounded-b-xl z-50 py-4 bg-gray h-[30%] ">
+        <div className="block md:hidden relative " ref={menuRef}>
+          {showMenu ? (
+            <MdOutlineClose size={45} onClick={toggleMenu} />
+          ) : (
+            <GiHamburgerMenu size={45} onClick={toggleMenu} />
+          )}
+          <div
+            className={`
+          ${
+            showMenu ? 'translate-x-0' : '-translate-x-full'
+          } fixed top-24 left-0 right-0 bg-gray-800 shadow-md rounded-b-xl z-50 py-4 bg-gray h-[30%] transition-transform duration-500`}
+          >
+            {showMenu && (
               <ul className="flex flex-col items-center gap-4">
                 {NavMenu.map((item) => (
                   <li key={item.id}>
@@ -101,8 +108,8 @@ const Navbar = () => {
                   </li>
                 ))}
               </ul>
-            </div>
-          )}
+            )}
+          </div>
         </div>
       </div>
     </div>

@@ -3,6 +3,7 @@ import { FaArrowRight } from 'react-icons/fa'
 import { FaArrowDown } from 'react-icons/fa6'
 import { FaArrowUp } from 'react-icons/fa6'
 import { useNavigate } from 'react-router-dom'
+import { motion } from 'framer-motion'
 
 // All、News分類的切換
 const Tabs = ({ selectedTab, setSelectedTab }) => {
@@ -106,7 +107,17 @@ const Announce = ({ value = [] }) => {
     <div className="bg-darkGray text-white py-20">
       <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-3 items-center gap-6">
-          <section className="space-y-7 lg:max-w-[380px]">
+          <motion.section
+            initial={{ opacity: 0, y: 100 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{
+              type: 'spring',
+              stiffness: 20,
+              damping: 10,
+              delay: 0.2,
+            }}
+            className="space-y-7 lg:max-w-[380px]"
+          >
             <p className="text-sm opacity-50 tracking-widest font-serif translate-y-3">
               - Announce
             </p>
@@ -114,40 +125,62 @@ const Announce = ({ value = [] }) => {
             <p className="text-sm leading-6 opacity-70">
               Explore our latest features and updates
             </p>
-          </section>
-          <section className="col-span-2 lg:px-20">
+          </motion.section>
+          <motion.section
+            initial={{ opacity: 0, y: -100 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{
+              type: 'spring',
+              stiffness: 20,
+              damping: 10,
+              delay: 0.4,
+            }}
+            className="col-span-2 lg:px-20"
+          >
             <Tabs selectedTab={selectedTab} setSelectedTab={setSelectedTab} />
             <div className="space-y-8 transition-all duration-500 min-h-[280px]">
               {paginatedAnnounce.map((item) => {
+                const isContentTruncated = item.content.length > 150
                 return (
                   <div key={item.id} className="border-b-2 border-gray pb-4">
                     <div
-                      className="flex justify-between items-center group hover:cursor-pointer"
+                      className="flex justify-between items-center group hover:cursor-pointer "
                       onClick={() => toggleItem(item.id)}
                     >
-                      <p className="text-sm opacity-75">{item.date}</p>
-                      <p className="text-lg font-bold max-w-[250px]  sm:max-w-[400px] md:max-w-[300px] truncate xl:max-w-[400px] 2xl:max-w-[550px] flex-grow">
+                      <p className="text-sm opacity-75 w-14 sm:w-auto">
+                        {item.date}
+                      </p>
+                      <p className="text-lg font-bold  max-w-[250px]  sm:max-w-[400px] md:max-w-[300px] truncate xl:max-w-[400px] 2xl:max-w-[550px] flex-grow">
                         {item.title}
                       </p>
                       {/* 箭頭圖標 */}
                       {item.open != true ? (
-                        <FaArrowDown className="text-xl text-primary group-hover:translate-x-2 transition duration-200" />
+                        <FaArrowDown className="text-xl text-primary group-hover:translate-y-2 transition duration-200" />
                       ) : (
-                        <FaArrowUp className="text-xl text-primary group-hover:translate-x-2 transition duration-200" />
+                        <FaArrowUp className="text-xl text-primary group-hover:-translate-y-2 transition duration-200" />
                       )}
                     </div>
                     {/* 展開的內容 */}
                     {item.open && (
                       <div className="text-sm mt-2 text-primary transition-all duration-500 ease-in-out">
-                        {item.content}
-                        <button
-                          className="text-blue-500 ml-2"
-                          onClick={() => {
-                            navigate(`/NewsPage/${item.id}`)
-                          }}
-                        >
-                          ......Learn more
-                        </button>
+                        <div className="line-clamp-3">
+                          {isContentTruncated
+                            ? item.content.slice(0, 150) + '...'
+                            : item.content}
+                        </div>
+                        {/* 只有當內容超過設定長度時顯示 '查看更多' 按鈕 */}
+                        {isContentTruncated && (
+                          <div className="w-full flex justify-end">
+                            <button
+                              className="text-blue-500 ml-2 hover:scale-105"
+                              onClick={() => {
+                                navigate(`/NewsPage/${item.id}`)
+                              }}
+                            >
+                              Learn more
+                            </button>
+                          </div>
+                        )}
                       </div>
                     )}
                   </div>
@@ -160,7 +193,7 @@ const Announce = ({ value = [] }) => {
               totalPages={totalPages}
               setPage={setCurrentPage}
             />
-          </section>
+          </motion.section>
         </div>
       </div>
     </div>

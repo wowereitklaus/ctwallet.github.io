@@ -26,7 +26,7 @@ const container = (delay) => ({
 const Hero = () => {
   return (
     <>
-      <main className="bg-gray text-white">
+      <main className="bg-gray text-white ">
         <div className="container">
           <div className="grid grid-cols-1 md:grid-cols-3  gap-12 min-h-[600px] lg:overflow-y-hidden place-items-center py-20 md:py-0 overflow-x-hidden">
             {/* 圖片區 */}
@@ -36,7 +36,7 @@ const Hero = () => {
                   variants={container(0.2)}
                   initial="hidden"
                   whileInView="show"
-                  className="text-4xl md:text-6xl font-bold relative z-20"
+                  className="text-4xl md:text-6xl font-bold relative"
                 >
                   Aio Digital <br />
                   Technology.
