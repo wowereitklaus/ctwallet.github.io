@@ -10,6 +10,7 @@ import Home from '@/pages/Home'
 import Product from '@/pages/Product.jsx'
 import PrivacyPolicy from '@/pages/PrivacyPolicy.jsx'
 import Service from '@/pages/Service.jsx'
+import NewsPage from './pages/NewsPage.jsx'
 
 const App = () => {
   return (
@@ -23,6 +24,7 @@ const App = () => {
             <Route exact path="/Product" element={<Product />} />
             <Route exact path="/PrivacyPolicy" element={<PrivacyPolicy />} />
             <Route exact path="/Service" element={<Service />} />
+            <Route exact path="/NewsPage/:id" element={<NewsPage />} />
           </Routes>
         </div>
         <Footer />

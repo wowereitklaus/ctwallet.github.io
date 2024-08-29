@@ -2,12 +2,28 @@ import React, { useState, useEffect, useRef } from 'react'
 import Logo from '@/assets/logo.png'
 import { Link } from 'react-router-dom'
 import { GiHamburgerMenu } from 'react-icons/gi'
+import { motion } from 'framer-motion'
 
 const NavMenu = [
-  { id: 1, title: 'Service', link: '/Service' },
-  { id: 2, title: 'Privacy Policy', link: '/PrivacyPolicy' },
-  { id: 3, title: 'Product', link: '/Product' },
+  { id: 1, title: 'Service', link: '/Service', delay: 0.2 },
+  { id: 2, title: 'Privacy Policy', link: '/PrivacyPolicy', delay: 0.4 },
+  { id: 3, title: 'Product', link: '/Product', delay: 0.6 },
 ]
+
+const container = (delay) => ({
+  hidden: {
+    opacity: 0,
+    x: -100,
+  },
+  show: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.4,
+      delay: delay,
+    },
+  },
+})
 
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false)
@@ -36,20 +52,31 @@ const Navbar = () => {
       <div className="container mx-auto flex justify-between items-center py-4">
         <div>
           <Link to="/" className="block">
-            <img src={Logo} alt="Logo" className="w-24 md:w-32" />
+            <motion.img
+              initial={{ opacity: 0, scale: 0 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              src={Logo}
+              alt="Logo"
+              className="w-24 md:w-32"
+            />
           </Link>
         </div>
         <div className="hidden md:flex items-center">
           <ul className="flex gap-10">
             {NavMenu.map((item) => (
-              <li key={item.id}>
+              <motion.li
+                variants={container(item.delay)}
+                initial="hidden"
+                whileInView="show"
+                key={item.id}
+              >
                 <Link
                   to={item.link}
                   className="hover:text-primary text-xl font-semibold duration-300"
                 >
                   {item.title}
                 </Link>
-              </li>
+              </motion.li>
             ))}
           </ul>
         </div>

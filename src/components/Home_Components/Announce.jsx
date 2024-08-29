@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { FaArrowRight } from 'react-icons/fa'
 import { FaArrowDown } from 'react-icons/fa6'
 import { FaArrowUp } from 'react-icons/fa6'
+import { useNavigate } from 'react-router-dom'
 
 // All、News分類的切換
 const Tabs = ({ selectedTab, setSelectedTab }) => {
@@ -64,6 +65,7 @@ const Pagination = ({ currentPage, totalPages, setPage }) => {
 
 // 布告欄組件
 const Announce = ({ value = [] }) => {
+  const navigate = useNavigate()
   const [announceList, setAnnounceList] = useState([]) // 布告欄資料
   useEffect(() => {
     setAnnounceList(value)
@@ -138,6 +140,14 @@ const Announce = ({ value = [] }) => {
                     {item.open && (
                       <div className="text-sm mt-2 text-primary transition-all duration-500 ease-in-out">
                         {item.content}
+                        <button
+                          className="text-blue-500 ml-2"
+                          onClick={() => {
+                            navigate(`/NewsPage/${item.id}`)
+                          }}
+                        >
+                          ......Learn more
+                        </button>
                       </div>
                     )}
                   </div>
