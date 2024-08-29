@@ -11,10 +11,6 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github-ct/wowereitklaus/ctwallet_official.git"
-  },
   "homepage": "https://wowereitklaus.github.io/ctwallet_official",
   "dependencies": {
     "framer-motion": "^11.2.13",
