@@ -65,6 +65,18 @@ const announceList = [
     tags: ['TRON', 'Wallet Update'],
     img: 'https://api.obit-app.com/image_0002.jpg',
   },
+  {
+    id: 6,
+    title: 'CT Wallet Version 1.3.0 Update Details',
+    author: '',
+    content:
+      'We are pleased to provide the details of the latest update for CT Wallet, version 1.3.0, released on Sep 10, 2024. This update includes the following changes:\n\n- Updated ETH fee information.\n- Optimized BSC fee information.\n- Fixed typos.\n- Updated "About Us" page with official channel information.\n\nWe recommend that you update to the latest version to take advantage of these improvements, and thank you for your continued support of CT Wallet!',
+    date: 'Sep 10, 2024',
+    open: false,
+    type: 'news',
+    tags: ['Version 1.3.0', 'Wallet Update'],
+    img: 'https://api.obit-app.com/image_0003.jpg',
+  },
 ]
 
 const GlobalProvider = ({ children }) => {
