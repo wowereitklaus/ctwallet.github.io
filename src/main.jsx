@@ -4,10 +4,23 @@ import App from '@/App.jsx'
 import '@/index.css'
 import GlobalProvider from '@/contexts/GlobalContext'
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <GlobalProvider>
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
-  </GlobalProvider>
-)
+const rootElement = document.getElementById("root");
+
+if (rootElement.hasChildNodes()) {
+  ReactDOM.hydrateRoot(
+    rootElement,
+    <GlobalProvider>
+      <React.StrictMode>
+        <App />
+      </React.StrictMode>
+    </GlobalProvider>
+  );
+} else {
+  ReactDOM.createRoot(rootElement).render(
+    <GlobalProvider>
+      <React.StrictMode>
+        <App />
+      </React.StrictMode>
+    </GlobalProvider>
+  );
+}

@@ -1,6 +1,6 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
-import ScrollToTop from './utils/ScrollToTop' // 引入跳頁時回到頂部的 Hook
+import ScrollToTop from './utils/ScrollToTop'
 // import components
 import Navbar from '@/components/Global_Components/Navbar'
 import Menubar from '@/components/Global_Components/Menubar'
@@ -24,10 +24,10 @@ const App = () => {
         <div className="flex-1">
           <Routes>
             <Route exact path="/" element={<Home />} />
-            <Route exact path="/Product" element={<Product />} />
-            <Route exact path="/PrivacyPolicy" element={<PrivacyPolicy />} />
-            <Route exact path="/Service" element={<Service />} />
-            <Route exact path="/NewsPage/:id" element={<NewsPage />} />
+            <Route path="/Product" element={<Product />} />
+            <Route path="/PrivacyPolicy" element={<PrivacyPolicy />} />
+            <Route path="/Service" element={<Service />} />
+            <Route path="/NewsPage/:id" element={<NewsPage />} />
           </Routes>
         </div>
         <Footer />
