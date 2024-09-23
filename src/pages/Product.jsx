@@ -157,7 +157,7 @@ const Product = () => {
                       />
                     </a>
                     <a
-                      href="#"
+                      href="https://play.google.com/store/apps/details?id=com.aio.city_wallet"
                       className="max-w-[150px] sm:max-w-[120px] md:max-w-[200px]"
                     >
                       <motion.img
